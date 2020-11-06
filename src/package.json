@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "sasoria",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@podium/layout": "^4.6.24",
     "express": "^4.17.1"
