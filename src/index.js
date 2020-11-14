@@ -28,4 +28,6 @@ app.get('/demo', async (req, res) => {
   );
 });
 
-app.listen(7000);
+app.listen(7000, () => (
+  console.log('Layout listening on port 7000')
+));

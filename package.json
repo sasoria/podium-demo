@@ -14,7 +14,7 @@
     "podium"
   ],
   "scripts": {
-    "start": "npm-run-all start:*",
+    "start": "npm-run-all --parallel start:*",
     "start:layout": "node src/index.js",
     "start:podlet": "node src/podlet/index.js"
   },
