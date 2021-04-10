@@ -12,13 +12,5 @@
   },
   "keywords": [
     "podium"
-  ],
-  "scripts": {
-    "start": "npm-run-all --parallel start:*",
-    "start:layout": "node src/index.js",
-    "start:podlet": "node src/podlet/index.js"
-  },
-  "dependencies": {
-    "npm-run-all": "^4.1.5"
-  }
+  ]
 }
