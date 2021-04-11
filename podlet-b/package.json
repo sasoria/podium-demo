@@ -6,7 +6,7 @@
   "author": "sasoria",
   "license": "MIT",
   "scripts": {
-    "start": "node index.js"
+    "start": "node podlet.js"
   },
   "dependencies": {
     "@podium/podlet": "^4.4.14",

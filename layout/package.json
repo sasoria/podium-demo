@@ -6,7 +6,7 @@
   "author": "sasoria",
   "license": "MIT",
   "scripts": {
-    "start": "node index.js"
+    "start": "node layout.js"
   },
   "dependencies": {
     "@podium/layout": "^4.6.24",
