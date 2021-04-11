@@ -2,7 +2,7 @@ const express = require("express");
 const Podlet = require("@podium/podlet");
 
 const podlet = new Podlet({
-  name: "podlet",
+  name: "podlet-a",
   version: "1.0.0",
   pathname: "/",
   content: "/",
@@ -20,8 +20,8 @@ app.use("/dist", express.static("./dist"));
 
 app.get(podlet.content(), (req, res) => {
   res.status(200).podiumSend(`
-        <div class="podlet-box">
-            This is the podlet's HTML content
+        <div class="podlet-a">
+            This is the podlet-a content
         </div>
     `);
 });
