@@ -35,7 +35,6 @@ app.use(layout.middleware());
 
 app.get(layout.pathname(), async (req, res, next) => {
   const incoming = res.locals.podium;
-  incoming.view.title = "Podium Layout";
 
   const podlets = await Promise.all([
     podletA.fetch(incoming),
@@ -43,10 +42,8 @@ app.get(layout.pathname(), async (req, res, next) => {
     podletC.fetch(incoming),
   ]);
 
-  podlets.map((podlet) => {
-    layout.css(podlet.css);
-    layout.js(podlet.js);
-  });
+  incoming.view.title = "Podium Layout";
+  incoming.podlets = podlets;
 
   res.podiumSend(
     `<section>
