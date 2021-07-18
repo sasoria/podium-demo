@@ -9,7 +9,7 @@
     "start": "node podlet.js"
   },
   "dependencies": {
-    "@podium/podlet": "^4.4.14",
+    "@podium/podlet": "^4.4.19",
     "express": "^4.17.1"
   }
 }
