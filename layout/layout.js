@@ -1,54 +1,11 @@
 const express = require("express");
-const Layout = require("@podium/layout");
-const utils = require("@podium/utils");
+const setupLayout = require("./setup/setupLayout");
 
 const app = express();
 
-const layout = new Layout({
-  name: "Layout",
-  pathname: "/",
-  development: true,
-  logger: console,
-});
-
-const podletA = layout.client.register({
-  name: "podlet-a",
-  uri: "http://localhost:7100/manifest.json",
-  resolveJs: true,
-  resolveCss: true,
-});
-
-const podletB = layout.client.register({
-  name: "podlet-b",
-  uri: "http://localhost:7200/manifest.json",
-  resolveJs: true,
-  resolveCss: true,
-});
-
-const podletC = layout.client.register({
-  name: "podlet-c",
-  uri: "http://localhost:7300/manifest.json",
-  resolveJs: true,
-  resolveCss: true,
-});
+const { layout, podletA, podletB, podletC } = setupLayout();
 
 app.use(layout.middleware());
-
-layout.view(
-  (incoming, body, head) => `<!doctype html>
-<html lang="${incoming.context.locale}">
-    <head>
-        <meta charset="${incoming.view.encoding}">
-        ${incoming.css.map(utils.buildLinkElement).join("\n")}
-        ${incoming.js.map(utils.buildScriptElement).join("\n")}
-        <title>${incoming.view.title}</title>
-        ${head}
-    </head>
-    <body>
-        ${body}
-    </body>
-</html>`
-);
 
 app.get(layout.pathname(), async (req, res, next) => {
   const incoming = res.locals.podium;
