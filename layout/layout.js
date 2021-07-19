@@ -8,18 +8,27 @@ const app = express();
 const { layout, podletA, podletB, podletC } = setupLayout();
 
 const homePodlets = [podletA, podletB, podletC];
-const firstPodlets = [podletA, podletB];
-const secondPodlets = [podletA, podletC];
-const thirdPodlets = [podletB, podletC];
+const firstPagePodlets = [podletA, podletB];
+const secondPagePodlets = [podletA, podletC];
+const thirdPagePodlets = [podletB, podletC];
 
 app.use(layout.middleware());
 
 app.get(layout.pathname(), handleHome(layout, homePodlets));
 
-app.get(`${layout.pathname()}pages/first`, handlePage(layout, firstPodlets));
+app.get(
+  `${layout.pathname()}pages/first`,
+  handlePage(layout, firstPagePodlets)
+);
 
-app.get(`${layout.pathname()}pages/second`, handlePage(layout, secondPodlets));
+app.get(
+  `${layout.pathname()}pages/second`,
+  handlePage(layout, secondPagePodlets)
+);
 
-app.get(`${layout.pathname()}pages/third`, handlePage(layout, thirdPodlets));
+app.get(
+  `${layout.pathname()}pages/third`,
+  handlePage(layout, thirdPagePodlets)
+);
 
 app.listen(7000, () => console.log("Layout listening on port 7000"));
