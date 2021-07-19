@@ -1,5 +1,6 @@
 const express = require("express");
 const setupLayout = require("./setup/setupLayout");
+const { head, indexBody, pageBody } = require("./templates/templates");
 
 const app = express();
 
@@ -19,19 +20,7 @@ app.get(layout.pathname(), async (req, res, next) => {
   incoming.view.title = "Podium Layout";
   incoming.podlets = podlets;
 
-  const head = `
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  `;
-
-  const body = `
-  <section>
-    ${podlets[0].content}
-    ${podlets[1].content}
-    ${podlets[2].content}
-  </section>
-`;
-  const document = layout.render(incoming, body, head);
+  const document = layout.render(incoming, indexBody(podlets), head);
   res.send(document);
 });
 
@@ -46,19 +35,7 @@ app.get(`${layout.pathname()}page`, async (req, res, next) => {
   incoming.view.title = "Podium Layout";
   incoming.podlets = podlets;
 
-  const head = `
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  `;
-
-  const body = `
-  <section>
-    ${podlets[0].content}
-    ${podlets[1].content}
-  </section>
-`;
-
-  const document = layout.render(incoming, body, head);
+  const document = layout.render(incoming, pageBody(podlets), head);
   res.send(document);
 });
 
