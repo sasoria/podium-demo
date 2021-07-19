@@ -1,4 +1,4 @@
-const { head, indexBody, pageBody } = require("../templates/templates");
+const { head, homeBody, pageBody } = require("../templates/templates");
 
 const handleHome = (layout, [podletA, podletB, podletC]) => {
   return async (req, res, next) => {
@@ -13,7 +13,7 @@ const handleHome = (layout, [podletA, podletB, podletC]) => {
     incoming.view.title = "Podium Layout";
     incoming.podlets = podlets;
 
-    const document = layout.render(incoming, indexBody(podlets), head);
+    const document = layout.render(incoming, homeBody(podlets), head);
     res.send(document);
   };
 };

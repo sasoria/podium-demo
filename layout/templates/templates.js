@@ -3,7 +3,7 @@ const head = `
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 `;
 
-const indexBody = (podlets) => `
+const homeBody = (podlets) => `
   <section>
     ${podlets[0].content}
     ${podlets[1].content}
@@ -20,6 +20,6 @@ const pageBody = (podlets) => `
 
 module.exports = {
   head,
-  indexBody,
+  homeBody,
   pageBody,
 };
