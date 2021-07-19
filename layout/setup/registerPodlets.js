@@ -1,4 +1,4 @@
-const setupPodlets = (layout) => {
+const registerPodlets = (layout) => {
   const podletA = layout.client.register({
     name: "podlet-a",
     uri: "http://localhost:7100/manifest.json",
@@ -27,4 +27,4 @@ const setupPodlets = (layout) => {
   };
 };
 
-module.exports = setupPodlets;
+module.exports = registerPodlets;
