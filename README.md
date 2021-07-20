@@ -11,10 +11,14 @@ A simple demo of a micro-frontend architecture using [Podium](https://podium-lib
 
 ### Layout
 
+```
 $ npm run build
 $ npm run layout
+```
 
 ### Podlets
 
+```
 $ npm run build
 $ npm run podlet
+```
