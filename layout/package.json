@@ -9,7 +9,7 @@
     "layout": "node layout.js"
   },
   "dependencies": {
-    "@podium/layout": "^4.6.24",
+    "@podium/layout": "^5.0.0",
     "@podium/utils": "4.4.39",
     "express": "^4.17.1"
   }
